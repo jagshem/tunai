@@ -20,7 +20,7 @@ const tools = [
     bgColor: 'bg-violet-500/10',
     href: '/conversation',
     content:
-      'Conversation sayfası, yapay zeka destekli sohbetler ve metin tabanlı iletişimler oluşturmak için kullanılabilir.',
+      '💬 Conversation sayfası, yapay zeka destekli sohbetler ve metin tabanlı iletişimler oluşturmak için kullanılabilir.',
   },
   {
     label: 'Music Generation',
@@ -29,7 +29,7 @@ const tools = [
     bgColor: 'bg-emerald-500/10',
     href: '/music',
     content:
-      'Music Generation sayfası, kullanıcının melodi, ritim veya tür bazlı girdilere göre müzik veya ses parçaları oluşturabileceği bir arayüzdür.',
+      '🎵 Music Generation sayfası, kullanıcının melodi, ritim veya tür bazlı girdilere göre müzik veya ses parçaları oluşturabileceği bir arayüzdür.',
   },
   {
     label: 'Image Generation',
@@ -38,7 +38,7 @@ const tools = [
     bgColor: 'bg-pink-800/10',
     href: '/image',
     content:
-      'Image Generation sayfası, kullanıcının metin veya konsept bazlı girdilere dayalı olarak sanatsal veya gerçekçi görseller üretebileceği bir arayüzdür.',
+      '🖼️ Image Generation sayfası, kullanıcının metin veya konsept bazlı girdilere dayalı olarak sanatsal veya gerçekçi görseller üretebileceği bir arayüzdür.',
   },
   {
     label: 'Video Generation',
@@ -47,7 +47,7 @@ const tools = [
     bgColor: 'bg-orange-700/10',
     href: '/video',
     content:
-      'Video Generation sayfası, kullanıcının metin veya senaryo bazlı girdilere göre video içerikleri oluşturabileceği bir arayüzdür.',
+      '🎥 Video Generation sayfası, kullanıcının metin veya senaryo bazlı girdilere göre video içerikleri oluşturabileceği bir arayüzdür.',
   },
   {
     label: 'Code Generation',
@@ -56,7 +56,7 @@ const tools = [
     bgColor: 'bg-green-700/10',
     href: '/code',
     content:
-      'Code Generation sayfası, kullanıcının metin tabanlı girdilere dayalı olarak yazılım kodları veya algoritmalar üretebileceği bir arayüzdür.',
+      '💻 Code Generation sayfası, kullanıcının metin tabanlı girdilere dayalı olarak yazılım kodları veya algoritmalar üretebileceği bir arayüzdür.',
   },
 ]
 
@@ -80,13 +80,20 @@ const DashboardPage = () => {
             key={tool.href}
             className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer "
           >
-            <div className="flex items-center gap-x-4">
-              <div className={cn('p-2 w-fit rounded-md', tool.bgColor)}>
-                <tool.icon className={cn('w-8 h-8', tool.color)} />
+            <div className="items-center mt-2">
+              <div className="flex items-center gap-x-4">
+                <div className={cn('p-2 w-fit rounded-md', tool.bgColor)}>
+                  <tool.icon className={cn('w-8 h-8', tool.color)} />
+                </div>
+                <div className="font-semibold">{tool.label}</div>
               </div>
-              <div className="font-semibold">{tool.label}</div>
+              <div className="items-center gap-y-3 space-y-2 mt-3">
+                <div className="hidden font-medium w-70 md:flex">
+                  {tool.content}
+                </div>
+              </div>
             </div>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-6 h-6" />
           </Card>
         ))}
       </div>
