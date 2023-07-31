@@ -24,6 +24,7 @@ import {
   HoverCardTrigger,
 } from '@/components/ui/hover-card'
 import { useState, useEffect } from 'react'
+import { FreeCounter } from "@/components/free-counter";
 
 const montserrat = Montserrat({ weight: '600', subsets: ['latin'] })
 
@@ -83,7 +84,11 @@ const routes = [
   },
 ]
 
-const Sidebar = () => {
+interface SidebarProps {
+    apiLimitCount: number
+}
+
+const Sidebar = ({apiLimitCount = 0}: SidebarProps) => {
   const pathname = usePathname()
   const [isMounted, setIsMounted] = useState(false)
 
@@ -157,6 +162,9 @@ const Sidebar = () => {
           ))}
         </>
       </div>
+      <FreeCounter
+        apiLimitCount={apiLimitCount}
+      />
     </div>
   )
 }
